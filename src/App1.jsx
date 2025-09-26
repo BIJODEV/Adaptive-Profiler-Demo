@@ -159,7 +159,15 @@ function App() {
               <p className="text-gray-600 mb-4">
                 This diagram shows the backend architecture of the Adaptive Profiling system, 
                 built with Cloudflare Workers, D1 Database, and KV storage.
+                 <p className="text-blue-700 text-sm font-medium">
+                    💡 <strong>Interactive Diagram:</strong> Click on any component to learn about its role and technology stack
+                    </p>
               </p>
+
+                {/* New highlighted call-to-action
+                <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                   
+                </div> */}
 
               <h3 className="font-semibold text-gray-700">Key Components:</h3>
               <ul className="list-disc list-inside text-gray-600 mb-3">

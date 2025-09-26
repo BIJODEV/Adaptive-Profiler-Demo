@@ -1,94 +1,77 @@
-// components/FeaturePanel.jsx
+// components/FeaturePanel.jsx - Updated descriptions
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const componentDetails = {
   dataPlane: {
     title: "Data Plane Worker",
-    description: "Frontline collector that inspects every request in real-time",
+    description: "Processes incoming requests and stores data in both D1 and KV",
     features: [
-      "Normalizes endpoints (scope, path, method)",
-      "Calculates entropy and stability scores", 
-      "Publishes raw observations to KV",
-      "Handles request body, headers, and files"
+      "Handles real-time HTTP requests",
+      "Stores processed data in D1 database",
+      "Caches raw observations in KV namespace",
+      "Performs initial normalization and analysis"
     ],
-    tech: ["Cloudflare Workers", "JavaScript"],
+    tech: ["Cloudflare Workers", "Edge Computing"],
   },
   reconciler: {
-    title: "Data Reconciler Worker",
-    description: "The brain that analyzes patterns and decides what's trustworthy",
+    title: "Data Reconciler",
+    description: "Processes KV cache and updates D1 with aggregated insights",
     features: [
-      "Aggregates observations from KV storage",
-      "Calculates stability scores and frequency analysis",
-      "Detects anomalies and behavioral patterns",
-      "Promotes consistent fields to D1 database",
-      "Suppresses noisy/unreliable data"
+      "Reads raw data from KV storage",
+      "Performs entropy & stability analysis and aggregation",
+      "Updates D1 with processed insights",
+      "Runs on CRON schedule for efficiency"
     ],
     tech: ["CRON Triggers", "Batch Processing", "D1 Database"],
   },
   controlPlane: {
     title: "Control Plane",
-    description: "The overseer providing visibility and management capabilities",
+    description: "Provides UI/API for viewing and managing profiling data",
     features: [
-      "Admin dashboard for profiling insights",
-      "Manual override capabilities for fine-tuning",
-      "Scope control and configuration management",
-      "Real-time metrics and analytics dashboard",
-      "API for external integrations"
+      "Queries D1 database for insights",
+      "Provides admin dashboard and APIs",
+      "Allows configuration of data plane",
+      "Shows real-time profiling analytics"
     ],
-    tech: ["React Dashboard", "REST API", "Authentication"],
+    tech: ["React Dashboard", "REST API", "D1 Queries"],
   },
   database: {
     title: "D1 Database",
-    description: "Persistent storage for trusted profiling data",
+    description: "Primary persistent storage for profiling data",
     features: [
-      "Stores normalized endpoints and parameters",
-      "Maintains field metadata history and trends",
-      "SQL-based querying capabilities for analysis",
-      "Backup and recovery built-in"
+      "Stores processed endpoint data",
+      "Maintains historical profiling insights",
+      "Serves data to control plane UI",
+      "SQL-based querying for analytics"
     ],
-    tech: ["Cloudflare D1", "SQLite"],
+    tech: ["Cloudflare D1", "SQLite", "Persistent Storage"],
   },
   storage: {
     title: "KV Storage",
-    description: "High-performance ephemeral storage for raw observations",
+    description: "Temporary cache for raw request data",
     features: [
-      "TTL-based automatic expiration (~1 hour)",
-      "High-throughput read/write operations",
-      "Distributed global storage network",
-      "Cost-effective transient data handling"
+      "Stores raw observations with TTL",
+      "High-speed read/write for batch processing",
+      "Ephemeral storage for efficiency",
+      "Feeds data to reconciler worker"
     ],
-    tech: ["Cloudflare KV", "Key-Value Store"],
-  },
-  processing: {
-    title: "Normalization Engine",
-    description: "Standardizes incoming request data for consistent processing",
-    features: [
-      "Extracts scope, path, and method from requests",
-      "Standardizes endpoint formatting",
-      "Validates and sanitizes input parameters",
-      "Prepares data for storage and analysis"
-    ],
-    tech: ["Data Processing", "Validation Logic"],
+    tech: ["Cloudflare KV", "Key-Value Cache", "Ephemeral Storage"],
   },
   external: {
-    title: "Incoming Request",
-    description: "External HTTP requests from tenants and applications",
+    title: "Incoming Requests",
+    description: "HTTP traffic from applications and tenants",
     features: [
-      "Multi-tenant request handling",
-      "Application-specific routing",
-      "Request validation and filtering",
-      "Traffic monitoring and metrics"
+      "Multi-tenant request streams",
+      "Application-specific traffic patterns",
+      "Real-time request processing",
+      "Source data for profiling engine"
     ],
-    tech: ["HTTP Protocol", "Load Balancing"],
+    tech: ["HTTP/HTTPS", "Load Balanced", "Multi-tenant"],
   }
 };
 
 export default function FeaturePanel({ selectedComponent, onClose }) {
-  // Debug: log the selected component to see what data we're getting
-  console.log('Selected Component:', selectedComponent);
-  
-  // Get the correct details based on the node's type
   const details = componentDetails[selectedComponent?.data?.type] || {
     title: selectedComponent?.data?.label || "Component",
     description: "Click on different components to learn about their roles",
