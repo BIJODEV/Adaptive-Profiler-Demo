@@ -16,13 +16,13 @@ export default function FlowVisualizer({ stage }) {
       {
         id: "waf",
         type: "default",
-        position: { x: 300, y: 100 },
+        position: { x: 250, y: 100 },
         data: { label: "🌐 WAF (Signatures)" },
       },
       {
         id: "profiler",
         type: "default",
-        position: { x: 300, y: 250 },
+        position: { x: 250, y: 250 },
         data: { label: "🧩 Adaptive Profiler" },
       },
       {
@@ -107,7 +107,7 @@ export default function FlowVisualizer({ stage }) {
             target: "app",
             animated: true,
             style: { stroke: "green", strokeWidth: 3 },
-            label: "Filtered by signatures + adaptive rules",
+            label: "Filtered by signatures + Adaptive Profile",
           },
           {
             id: "e3",
