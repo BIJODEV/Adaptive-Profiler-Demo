@@ -1,16 +1,37 @@
-# React + Vite
+# Adaptive Profiling Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A interactive demo showcasing the Adaptive Profiling system architecture built with Cloudflare Workers, D1 Database, and KV storage.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Flow View**: Demonstrates the evolution from signature-based WAF to adaptive profiling
+- **Backend Architecture**: Interactive diagram of the system components
+- **Stage Transitions**: Current → Transition → Target state progression
+- **Component Details**: Click on architecture components to learn about their roles
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 18
+- React Flow for diagrams
+- Framer Motion for animations
+- Tailwind CSS for styling
+- Vite for build tooling
 
-## Expanding the ESLint configuration
+## Deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is deployed on GitHub Pages: [Live Demo](https://yourusername.github.io/adaptive-profiling-demo)
+
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
