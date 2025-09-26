@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/adaptive-profiling-demo/', // Important for GitHub Pages
+  base: '/Adaptive-Profiler-Demo/', // Important for GitHub Pages
   build: {
     outDir: 'dist',
     sourcemap: false
